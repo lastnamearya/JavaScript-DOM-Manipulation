@@ -1,5 +1,9 @@
 const myHeading = document.getElementById('myHeading');
 
 myHeading.addEventListener('click', () => {
-  myHeading.style.color = "red";
+  if(myHeading.style.color == "black") {
+    myHeading.style.color = "red";
+  } else {
+    myHeading.style.color = "black";
+  }
 });
