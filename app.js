@@ -1,17 +1,9 @@
-const myList = document.getElementsByTagName('li');
+const input = document.querySelector('input');
 
-for(let i = 0; i < myList.length; i++){
-  myList[i].style.color = 'purple';
-}
+const p = document.querySelector('p.description');
 
- const errorNotPurple = document.querySelectorAll('.error-not-purple');
+const button = document.querySelector('button');
 
- for(let i = 0; i < errorNotPurple.length; i++){
-   errorNotPurple[i].style.color = "red";
- }
-
- const evens = document.querySelectorAll('li:nth-child(odd)');
-
- for(let i = 0; i < evens.length; i++){
-   evens[i].style.backgroundColor = "lightgray";
- }
+button.addEventListener('click', () => {
+  p.innerHTML = input.value + ":";
+})
