@@ -1,9 +1,8 @@
-const myHeading = document.getElementsByTagName('h1');
-const myButton = document.getElementById('myButton');
-const myTextInput = document.getElementById('myTextInput');
+const myList = document.getElementsByTagName('li');
 
-myButton.addEventListener('click', () => {
-  // Here myHeading is a collection
-  myHeading[0].style.color = myTextInput.value;
-});
+myList[2].style.color = "red";
+
+for(let i = 0; i < myList.length; i++){
+  myList[i].style.color = 'purple';
+}
 
