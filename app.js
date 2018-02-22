@@ -1,12 +1,9 @@
-const myHeading = document.getElementById('myHeading');
+const myHeading = document.getElementsByTagName('h1');
 const myButton = document.getElementById('myButton');
 const myTextInput = document.getElementById('myTextInput');
 
-myHeading.addEventListener('click', () => {
-  myHeading.style.color = "red";
-});
-
 myButton.addEventListener('click', () => {
-  myHeading.style.color = myTextInput.value;
+  // Here myHeading is a collection
+  myHeading[0].style.color = myTextInput.value;
 });
 
