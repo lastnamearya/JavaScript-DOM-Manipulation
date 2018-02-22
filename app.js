@@ -1,9 +1,23 @@
-const myHeading = document.getElementById('myHeading');
+const toggleList = document.getElementById('toggleList');
+const listDiv = document.querySelector('.list');
 
-myHeading.addEventListener('click', () => {
-  if(myHeading.style.color == "black") {
-    myHeading.style.color = "red";
+const input = document.querySelector('input.description');
+
+const p = document.querySelector('p.description');
+
+const button = document.querySelector('button.description');
+
+toggleList.addEventListener('click', () => {
+  if (listDiv.style.display == "none") {
+      toggleList.textContent = "Hide List";
+      listDiv.style.display = 'block';
   } else {
-    myHeading.style.color = "black";
+      toggleList.textContent = "Show List";
+      listDiv.style.display = 'none';
   }
-});
+})
+
+button.addEventListener('click', () => {
+  p.innerHTML = input.value + ":";
+})
+
