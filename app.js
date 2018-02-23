@@ -43,6 +43,7 @@ listUl.addEventListener('click', (event) => {
       let ul = li.parentNode;
       // Now it runs only there's previous Sibling
       if (prevLi){
+        // li will move to prevLi place, one step up
         ul.insertBefore(li, prevLi);
       }
     }
@@ -51,6 +52,7 @@ listUl.addEventListener('click', (event) => {
       let nextLi = li.nextElementSibling;
       let ul = li.parentNode;
       if(nextLi){
+        // nextLi will move to li place, i.e one step down because we'r using nextSibling
         ul.insertBefore(nextLi, li);
       }
     }
