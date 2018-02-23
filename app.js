@@ -13,6 +13,7 @@ const descriptionP = document.querySelector('p.description');
 // Button for Changing the List Description
 const descriptionButton = document.querySelector('button.description');
 
+// Our List Items under the listDiv Section
 const listUl = listDiv.querySelector('ul');
 
 // Input for adding a new list item by user
@@ -24,13 +25,35 @@ const addItemButton = document.querySelector('button.addItemButton');
 // All List Items
 const listItems = document.getElementsByTagName('li');
 
+// ******************************************* //
+
 // Using .parentNode property to hide all the list items
 listUl.addEventListener('click', (event) => {
   if(event.target.tagName == 'BUTTON') {
-    // Li is the parent of the button, we can use button's parentNode property to refer it
-    let li = event.target.parentNode;
-    let ul = li.parentNode;
-    ul.removeChild(li);
+    if(event.target.className == "remove") {
+      // Li is the parent of the button, we can use button's parentNode property to refer it
+      let li = event.target.parentNode;
+      let ul = li.parentNode;
+      ul.removeChild(li);
+    }
+    if(event.target.className == "up") {
+      // Li is the parent of the button, we can use button's parentNode property to refer it
+      let li = event.target.parentNode;
+      let prevLi = li.previousElementSibling;
+      let ul = li.parentNode;
+      // Now it runs only there's previous Sibling
+      if (prevLi){
+        ul.insertBefore(li, prevLi);
+      }
+    }
+    if(event.target.className == "down") {
+      let li = event.target.parentNode;
+      let nextLi = li.nextElementSibling;
+      let ul = li.parentNode;
+      if(nextLi){
+        ul.insertBefore(nextLi, li);
+      }
+    }
   }
 });
 
