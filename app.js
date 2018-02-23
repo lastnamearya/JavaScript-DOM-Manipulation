@@ -19,6 +19,9 @@ const addItemInput = document.querySelector('input.addItemInput');
 // Button for adding a new list item
 const addItemButton = document.querySelector('button.addItemButton');
 
+// Button for removing last item
+const removeItemButton = document.querySelector('button.removeItemButton');
+
 // ******************************************* //
 
 // On Clicking the first Button i.e ToggleList Button, Event fires up
@@ -47,4 +50,17 @@ addItemButton.addEventListener('click', () => {
   ul.appendChild(li);
   // Now after adding the input 'li' element, it's better to clear our input box
   addItemInput.value = '';
+});
+
+// Remove Last Item from the List
+removeItemButton.addEventListener('click', () => {
+  let ul = document.getElementsByTagName('ul')[0];
+
+  // Using CSS Pseudo Class Selector
+  let li = document.querySelector('li:last-child');
+
+  // The normal way to proceed
+  // let li = ul.lastChild;
+
+  ul.removeChild(li);
 });
