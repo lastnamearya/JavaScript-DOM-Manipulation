@@ -28,6 +28,13 @@ const listItems = document.getElementsByTagName('li');
 // Store the buttons in lis, and select them using children property
 const lis = listUl.children;
 
+// FirstElementChild & LastElementChild
+const firstListItem = listUl.firstElementChild;
+const lastListItem = listUl.lastElementChild;
+
+firstListItem.style.backgroundColor = "lightskyblue";
+lastListItem.style.backgroundColor = "lightsteelblue";
+
 function attachListItemButtons(li) {
   let up = document.createElement('button');
   up.className = 'up';
