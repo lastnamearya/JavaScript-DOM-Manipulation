@@ -25,19 +25,24 @@ const removeItemButton = document.querySelector('button.removeItemButton');
 // All List Items
 const listItems = document.getElementsByTagName('li');
 
-// // Event Bubbling, not adding Handler for each and seprate Element, applying it on the list div
-// listDiv.addEventListener('mouseover', () => {
-
-// });
-
-// listDiv.addEventListener('mouseout', () => {
-
-// });
-
-// Let's add a temporary click handler to the document object
-document.addEventListener('click', (event) => {
-  console.log(event.target);
+// Event Bubbling, not adding Handler for each and seprate Element, applying it on the list div
+listDiv.addEventListener('mouseover', (event) => {
+  if(event.target.tagName == 'LI') {
+    event.target.textContent = event.target.textContent.toUpperCase();
+  }
 });
+
+// Here and in above, event object is available to Handler
+listDiv.addEventListener('mouseout', (event) => {
+  if(event.target.tagName == "LI") {
+    event.target.textContent = event.target.textContent.toLowerCase();
+  }
+});
+
+// // Let's add a temporary click handler to the document object
+// document.addEventListener('click', (event) => {
+//   console.log(event.target);
+// });
 
 // ******************************************* //
 
