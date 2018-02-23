@@ -13,36 +13,26 @@ const descriptionP = document.querySelector('p.description');
 // Button for Changing the List Description
 const descriptionButton = document.querySelector('button.description');
 
+const listUl = listDiv.querySelector('ul');
+
 // Input for adding a new list item by user
 const addItemInput = document.querySelector('input.addItemInput');
 
 // Button for adding a new list item
 const addItemButton = document.querySelector('button.addItemButton');
 
-// Button for removing last item
-const removeItemButton = document.querySelector('button.removeItemButton');
-
 // All List Items
 const listItems = document.getElementsByTagName('li');
 
-// Event Bubbling, not adding Handler for each and seprate Element, applying it on the list div
-listDiv.addEventListener('mouseover', (event) => {
-  if(event.target.tagName == 'LI') {
-    event.target.textContent = event.target.textContent.toUpperCase();
+// Using .parentNode property to hide all the list items
+listUl.addEventListener('click', (event) => {
+  if(event.target.tagName == 'BUTTON') {
+    // Li is the parent of the button, we can use button's parentNode property to refer it
+    let li = event.target.parentNode;
+    let ul = li.parentNode;
+    ul.removeChild(li);
   }
 });
-
-// Here and in above, event object is available to Handler
-listDiv.addEventListener('mouseout', (event) => {
-  if(event.target.tagName == "LI") {
-    event.target.textContent = event.target.textContent.toLowerCase();
-  }
-});
-
-// // Let's add a temporary click handler to the document object
-// document.addEventListener('click', (event) => {
-//   console.log(event.target);
-// });
 
 // ******************************************* //
 
@@ -72,18 +62,5 @@ addItemButton.addEventListener('click', () => {
   ul.appendChild(li);
   // Now after adding the input 'li' element, it's better to clear our input box
   addItemInput.value = '';
-});
-
-// Remove Last Item from the List
-removeItemButton.addEventListener('click', () => {
-  let ul = document.getElementsByTagName('ul')[0];
-
-  // Using CSS Pseudo Class Selector
-  let li = document.querySelector('li:last-child');
-
-  // The normal way to proceed
-  // let li = ul.lastChild;
-
-  ul.removeChild(li);
 });
 
