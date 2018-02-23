@@ -22,6 +22,19 @@ const addItemButton = document.querySelector('button.addItemButton');
 // Button for removing last item
 const removeItemButton = document.querySelector('button.removeItemButton');
 
+// All List Items
+const listItems = document.getElementsByTagName('li')[0];
+
+// Adding Event Listener to it right below
+listItems.addEventListener('mouseover', () => {
+  listItems.textContent = listItems.textContent.toUpperCase();
+});
+
+// Similiar Mouse Out Event when we remove our pointer from the item
+listItems.addEventListener('mouseout', () => {
+  listItems.textContent = listItems.textContent.toLowerCase();
+});
+
 // ******************************************* //
 
 // On Clicking the first Button i.e ToggleList Button, Event fires up
