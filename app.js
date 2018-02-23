@@ -23,16 +23,20 @@ const addItemButton = document.querySelector('button.addItemButton');
 const removeItemButton = document.querySelector('button.removeItemButton');
 
 // All List Items
-const listItems = document.getElementsByTagName('li')[0];
+const listItems = document.getElementsByTagName('li');
 
-// Adding Event Listener to it right below
-listItems.addEventListener('mouseover', () => {
-  listItems.textContent = listItems.textContent.toUpperCase();
-});
+// // Event Bubbling, not adding Handler for each and seprate Element, applying it on the list div
+// listDiv.addEventListener('mouseover', () => {
 
-// Similiar Mouse Out Event when we remove our pointer from the item
-listItems.addEventListener('mouseout', () => {
-  listItems.textContent = listItems.textContent.toLowerCase();
+// });
+
+// listDiv.addEventListener('mouseout', () => {
+
+// });
+
+// Let's add a temporary click handler to the document object
+document.addEventListener('click', (event) => {
+  console.log(event.target);
 });
 
 // ******************************************* //
